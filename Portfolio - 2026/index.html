@@ -1,277 +1,391 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Clara | Design & Tech Portfolio</title>
-    
-    <!-- Scripts & Frameworks -->
+    <title>Ana Clara — UX/UI &amp; CRO Designer</title>
+    <meta name="description" content="UX/UI &amp; CRO Designer specializing in high-converting landing pages and e-commerce experiences for DTC brands.">
+
+    <!-- Open Graph / link preview -->
+    <meta property="og:title" content="Ana Clara — UX/UI &amp; CRO Designer">
+    <meta property="og:description" content="High-converting landing pages and e-commerce experiences for DTC brands.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anacaj.github.io/anacaj/">
+    <meta property="og:image" content="https://anacaj.github.io/anacaj/saas-redesign.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-style='italic' fill='%23d4cfc7'>A</text></svg>">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    
-    <!-- Google Fonts: Instrument Serif (Luxo), Inter (Clean), JetBrains Mono (Tech) -->
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+
     <style>
-        :root { 
-            --accent: #d4cfc7; /* Bege Champagne Premium */
-            --bg: #0f0f0f;     /* Grafite Escuro Soft */
-            --text: #f5f5f5;   /* Off-white */
+        :root {
+            --accent: #d4cfc7;
+            --bg: #0f0f0f;
+            --text: #f5f5f5;
         }
-        
-        body { 
-            background-color: var(--bg); 
-            color: var(--text); 
-            font-family: 'Inter', sans-serif; 
-            scroll-behavior: smooth; 
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
-        
+
         .serif { font-family: 'Instrument Serif', serif; }
         .mono { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; }
 
-        /* Estilo do Avatar 3D */
-        model-viewer { 
-            width: 100%; height: 100%; 
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 100%);
-            --poster-color: transparent;
+        /* Skip link for keyboard/screen-reader users */
+        .skip-link {
+            position: absolute; left: -999px; top: 0; z-index: 100;
+            background: var(--accent); color: #0f0f0f; padding: 12px 20px;
+            font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        }
+        .skip-link:focus { left: 0; }
+
+        /* Visible focus for accessibility */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+            border-radius: 4px;
         }
 
-        /* GRID DE PROJETOS - Contraste Elevado */
-        .project-card {
-            background: #000;
-            border-radius: 32px;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Sticky nav */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 24px;
+            backdrop-filter: blur(12px);
+            background: rgba(15,15,15,0.65);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-        
+        @media (min-width: 768px) { .nav { padding: 18px 48px; } }
+
+        .nav-cta {
+            font-family: 'JetBrains Mono', monospace; font-size: 11px;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            border: 1px solid var(--accent); color: var(--accent);
+            padding: 9px 18px; border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+        .nav-cta:hover { background: var(--accent); color: #0f0f0f; }
+
+        /* Primary button */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--accent); color: #0f0f0f;
+            font-family: 'JetBrains Mono', monospace; font-size: 12px;
+            letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
+            padding: 16px 30px; border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212,207,199,0.18); }
+
+        .project-card {
+            display: block;
+            background: #000; border-radius: 32px; overflow: hidden;
+            position: relative; border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+        .project-card:hover { border-color: rgba(212,207,199,0.3); }
+
         .project-img {
             width: 100%; height: 100%; object-fit: cover;
-            opacity: 0.45; /* Escurece a imagem para destacar o texto */
-            filter: grayscale(20%) brightness(80%);
+            opacity: 0.55;
+            filter: grayscale(15%) brightness(85%);
             transition: all 0.9s ease;
         }
+        .project-card:hover .project-img { opacity: 0.8; filter: grayscale(0%) brightness(100%); transform: scale(1.04); }
 
-        .project-card:hover .project-img {
-            opacity: 0.7;
-            filter: grayscale(0%) brightness(100%);
-            transform: scale(1.04);
-        }
-
-        /* Gradiente de proteção de texto (Scrim) */
         .project-overlay {
             position: absolute; inset: 0;
-            background: linear-gradient(to top, 
-                rgba(0,0,0,0.95) 0%, 
-                rgba(0,0,0,0.4) 50%, 
-                transparent 90%);
-            padding: 3rem; 
-            display: flex; flex-direction: column; justify-content: flex-end;
+            background: linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.45) 50%, transparent 92%);
+            padding: 2rem; display: flex; flex-direction: column; justify-content: flex-end;
+        }
+        @media (min-width: 768px) { .project-overlay { padding: 3rem; } }
+
+        .text-shadow-premium { text-shadow: 0 4px 15px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.5); }
+
+        .view-case { margin-top: 1.25rem; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
+
+        .tag {
+            display: inline-block; font-family: 'JetBrains Mono', monospace;
+            font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--accent); border: 1px solid rgba(212, 207, 199, 0.3);
+            border-radius: 999px; padding: 5px 13px; margin: 0 6px 8px 0;
         }
 
-        .text-shadow-premium {
-            text-shadow: 0 4px 15px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        /* Links de Contato */
         .contact-link {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 18px 0;
-            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            padding: 18px 0; transition: all 0.4s ease;
             display: flex; justify-content: space-between; align-items: center;
         }
         .contact-link:hover { border-bottom: 1px solid var(--accent); color: var(--accent); padding-left: 12px; }
 
-        /* Timeline de Educação */
-        .edu-item { margin-bottom: 2.5rem; border-left: 1px solid rgba(212, 207, 199, 0.2); padding-left: 1.5rem; }
+        .edu-item { margin-bottom: 2rem; border-left: 1px solid rgba(212, 207, 199, 0.25); padding-left: 1.5rem; }
 
-        /* Barra de rolagem customizada */
+        .eyebrow { color: #a8a29e; } /* lifted from low-opacity to readable */
+
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; scroll-behavior: auto !important; }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- HEADER / HERO -->
-    <header class="h-screen w-full flex flex-col md:flex-row overflow-hidden border-b border-white/5">
-        
-        <!-- LADO ESQUERDO: AVATAR 3D -->
-        <div class="w-full md:w-1/2 h-[50vh] md:h-full relative border-r border-white/5">
-            <model-viewer 
-                src="model.glb" 
-                alt="Avatar 3D Ana Clara"
-                auto-rotate rotation-per-second="12deg"
-                camera-controls disable-zoom
-                shadow-intensity="0.5" exposure="0.85"
-                camera-orbit="0deg 85deg 4.5m" 
-                field-of-view="30deg"
-                autoplay>
-            </model-viewer>
-            <div class="absolute top-10 left-10 mono opacity-30">ANA_CLARA // STUDIO_V2.6</div>
+    <a href="#projects" class="skip-link">Skip to work</a>
+
+    <!-- STICKY NAV -->
+    <nav class="nav">
+        <a href="#top" class="mono uppercase tracking-widest" style="color:var(--accent)">Ana Clara</a>
+        <div class="flex items-center gap-6">
+            <a href="#projects" class="mono uppercase tracking-widest hidden sm:inline text-zinc-300 hover:text-white transition">Work</a>
+            <a href="#about" class="mono uppercase tracking-widest hidden sm:inline text-zinc-300 hover:text-white transition">About</a>
+            <a href="#contact" class="nav-cta">Get in touch</a>
         </div>
+    </nav>
 
-        <!-- LADO DIREITO: INFOS PRINCIPAIS -->
-        <div class="w-full md:w-1/2 h-full p-12 md:p-24 flex flex-col justify-center">
-            <div class="mb-14">
-                <p class="mono opacity-40 mb-8 uppercase tracking-[0.4em]">Designer Gráfica & Web Architect</p>
-                <h1 class="text-8xl md:text-[10.5rem] serif italic leading-[0.7] mb-8">
-                    Ana<br>Clara
-                </h1>
-                <p class="text-zinc-500 text-xl font-light leading-relaxed max-w-md">
-                    Estratégia visual curada para marcas que buscam <span class="italic text-zinc-300">minimalismo tecnológico.</span>
-                </p>
+    <!-- HERO -->
+    <header id="top" class="min-h-screen w-full flex items-center px-6 md:px-24 border-b border-white/5 relative pt-24">
+        <div class="max-w-5xl py-24">
+            <p class="mono mb-8 uppercase tracking-[0.4em] eyebrow">Conversion-focused design for DTC e-commerce</p>
+
+            <h1 class="text-5xl sm:text-6xl md:text-[7.5rem] serif italic leading-[0.9] md:leading-[0.85] mb-10">
+                I design<br>experiences<br>that <span class="not-italic">convert.</span>
+            </h1>
+
+            <p class="text-zinc-300 text-lg md:text-2xl font-light leading-relaxed max-w-2xl mb-12">
+                UX/UI &amp; CRO Designer building high-converting landing pages, product pages, and
+                e-commerce interfaces — where every section, headline, and CTA exists to move a metric.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-5 mb-16">
+                <a href="#contact" class="btn-primary">Get in touch <span>→</span></a>
+                <a href="#projects" class="mono text-[11px] uppercase tracking-[0.4em] text-zinc-300 hover:text-white transition">View work ↓</a>
             </div>
 
-            <div class="flex gap-16 border-t border-white/10 pt-10">
+            <div class="flex flex-wrap gap-8 md:gap-16 border-t border-white/10 pt-10">
                 <div>
-                    <span class="mono opacity-30 block mb-3 uppercase tracking-widest">Expertise</span>
-                    <p class="text-[11px] tracking-[0.2em] font-light uppercase">Figma / Adobe Suite</p>
+                    <span class="mono eyebrow block mb-3 uppercase tracking-widest">Design</span>
+                    <p class="text-[11px] tracking-[0.2em] font-light uppercase text-zinc-200">UX/UI · CRO · Landing Pages</p>
                 </div>
                 <div>
-                    <span class="mono opacity-30 block mb-3 uppercase tracking-widest">Tech Stack</span>
-                    <p class="text-[11px] tracking-[0.2em] font-light uppercase">VS Code / Web UI</p>
+                    <span class="mono eyebrow block mb-3 uppercase tracking-widest">Systems</span>
+                    <p class="text-[11px] tracking-[0.2em] font-light uppercase text-zinc-200">Figma · Design Systems</p>
                 </div>
-            </div>
-
-            <div class="mt-20">
-                <a href="#about" class="mono text-[10px] uppercase opacity-30 hover:opacity-100 transition tracking-[0.6em]">Discover History ↓</a>
+                <div>
+                    <span class="mono eyebrow block mb-3 uppercase tracking-widest">Build</span>
+                    <p class="text-[11px] tracking-[0.2em] font-light uppercase text-zinc-200">HTML · CSS · Responsive Web</p>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- SEÇÃO SOBRE MIM / FORMAÇÃO -->
-    <section id="about" class="py-48 px-6 md:px-20 max-w-7xl mx-auto border-b border-white/5">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
-            
-            <!-- Bio Editorial -->
+    <!-- PROJECTS (moved up: work before bio — recruiters want proof first) -->
+    <section id="projects" class="py-32 md:py-40 px-6 md:px-20 max-w-[1400px] mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 gap-8">
             <div>
-                <h2 class="text-xs mono text-zinc-600 uppercase tracking-[0.5em] mb-12">// Profile_Background</h2>
-                <h3 class="text-6xl md:text-7xl serif italic leading-tight mb-10">
-                    Curando o futuro através de <span class="not-italic font-light">linhas limpas.</span>
+                <p class="mono text-zinc-400 mb-4 uppercase tracking-[0.5em]">Selected Work</p>
+                <h2 class="text-5xl md:text-8xl serif italic leading-none tracking-tighter">Projects</h2>
+            </div>
+            <p class="text-zinc-400 font-light text-left md:text-right max-w-xs">Conversion-focused design for digital products and brands.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+
+            <!-- 01 — SaaS Landing Page Redesign -->
+            <a href="schedule-validator.html" class="md:col-span-12 h-[520px] md:h-[600px] project-card">
+                <img src="saas-redesign.png" class="project-img" alt="SaaS landing page redesign — schedule validation platform">
+                <div class="project-overlay">
+                    <div class="max-w-3xl">
+                        <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Landing Page · UX/UI · Design System</p>
+                        <h3 class="text-3xl md:text-6xl serif italic text-white text-shadow-premium leading-tight">SaaS Landing Page Redesign</h3>
+                        <p class="text-zinc-200 font-light mt-5 text-base md:text-lg max-w-xl text-shadow-premium">
+                            Full redesign for a B2B schedule-validation platform — restructuring the page flow
+                            from hero to final CTA to build trust and drive conversion. Delivered as a complete,
+                            dev-ready package: visual design, a documented color and type system, motion specs,
+                            and full handoff documentation.
+                        </p>
+                        <span class="view-case">View case →</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 02 — Tax Services -->
+            <a href="#contact" class="md:col-span-7 h-[480px] md:h-[600px] project-card">
+                <img src="tax-services.png" class="project-img" alt="Tax services landing page for a US firm">
+                <div class="project-overlay">
+                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Landing Page · Web Design</p>
+                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Tax Services Landing Page</h3>
+                    <p class="text-zinc-200 font-light mt-4 text-base max-w-md text-shadow-premium">
+                        Service-based landing page for a US tax &amp; bookkeeping firm — structured to turn
+                        visitors into booked consultations.
+                    </p>
+                    <span class="view-case">View case →</span>
+                </div>
+            </a>
+
+            <!-- 03 — Skincare Routine (interactive app, DTC) -->
+            <a href="https://anacaj.github.io/project-showcase/skincare-routine.html" target="_blank" rel="noopener" class="md:col-span-7 h-[480px] md:h-[600px] project-card">
+                <img src="https://anacaj.github.io/project-showcase/skincare.png" class="project-img" alt="Skincare routine interactive app">
+                <div class="project-overlay">
+                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Interactive App · UX/UI · DTC</p>
+                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Skincare Routine</h3>
+                    <p class="text-zinc-200 font-light mt-4 text-base max-w-md text-shadow-premium">
+                        A working, interactive skincare-routine experience built front-to-back — guided product
+                        flow designed for clarity and conversion in a DTC context.
+                    </p>
+                    <span class="view-case">Launch app →</span>
+                </div>
+            </a>
+
+            <!-- 04 — Xiaomi Soundbar Pro (product UI) -->
+            <a href="#contact" class="md:col-span-5 h-[480px] md:h-[600px] project-card">
+                <img src="https://anacaj.github.io/project-showcase/xiaomi.png" class="project-img" alt="Xiaomi Soundbar Pro UI case study">
+                <div class="project-overlay">
+                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Product UI · Case Study</p>
+                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Xiaomi Soundbar Pro</h3>
+                    <p class="text-zinc-200 font-light mt-4 text-base max-w-md text-shadow-premium">
+                        Premium product interface — minimalist data visualization and luxury tech aesthetics.
+                    </p>
+                    <span class="view-case">View case →</span>
+                </div>
+            </a>
+
+            <!-- 05 — Esquilo Econômico -->
+            <a href="#contact" class="md:col-span-5 h-[480px] md:h-[600px] project-card">
+                <img src="Prancheta 1.png" class="project-img" alt="Esquilo Econômico brand identity">
+                <div class="project-overlay">
+                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Brand Identity</p>
+                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Esquilo Econômico</h3>
+                    <span class="view-case">View case →</span>
+                </div>
+            </a>
+
+            <!-- 06 — Mr. Freeze -->
+            <a href="#contact" class="md:col-span-5 h-[440px] md:h-[550px] project-card">
+                <img src="Prancheta 4.png" class="project-img" alt="Mr. Freeze product series">
+                <div class="project-overlay">
+                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Product Series</p>
+                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Mr. Freeze</h3>
+                    <span class="view-case">View case →</span>
+                </div>
+            </a>
+
+            <!-- 07 — Totaline -->
+            <a href="#contact" class="md:col-span-7 h-[440px] md:h-[550px] project-card">
+                <img src="Prancheta 5.png" class="project-img" alt="Totaline Foz commercial identity">
+                <div class="project-overlay">
+                    <div class="max-w-xl">
+                        <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Commercial Identity</p>
+                        <h3 class="text-3xl md:text-6xl serif italic text-white text-shadow-premium leading-tight">Totaline Foz</h3>
+                        <p class="text-zinc-200 font-light mt-4 text-base max-w-md text-shadow-premium">
+                            HVAC brand campaigns built around authority and a refined commercial identity.
+                        </p>
+                        <span class="view-case">View case →</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-32 md:py-40 px-6 md:px-20 max-w-7xl mx-auto border-t border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
+
+            <div>
+                <h2 class="text-xs mono text-zinc-400 uppercase tracking-[0.5em] mb-10">Profile</h2>
+                <h3 class="text-4xl md:text-6xl serif italic leading-tight mb-10">
+                    Design measured in <span class="not-italic font-light">results, not just pixels.</span>
                 </h3>
-                <p class="text-zinc-400 font-light leading-relaxed text-lg mb-8">
-                    Com 28 anos, transformo complexidade em clareza. Meu trabalho é focado em elevar o padrão visual de produtos digitais e marcas contemporâneas.
+                <p class="text-zinc-300 font-light leading-relaxed text-lg mb-6">
+                    I'm a UX/UI &amp; CRO Designer specialized in high-converting landing pages and
+                    e-commerce experiences for DTC brands. My work lives at the intersection of design
+                    and performance — looking good isn't enough; the design has to do a job.
                 </p>
-                <p class="text-zinc-500 font-light leading-relaxed italic serif text-xl">
-                    "O design é a interface entre a tecnologia e a alma humana."
+                <p class="text-zinc-300 font-light leading-relaxed text-lg mb-6">
+                    I think in full-funnel terms, aligning visual design with the user journey from the
+                    first click to conversion. Beyond the interface, I build dev-ready design systems and
+                    handoff documentation that keep teams aligned and ship work faster.
+                </p>
+                <p class="text-zinc-300 font-light leading-relaxed text-lg">
+                    I work remotely in English and Portuguese, with DTC and e-commerce brands across
+                    international markets.
                 </p>
             </div>
 
-            <!-- Formação e Cursos -->
-            <div class="pt-6">
-                <div class="mb-20">
-                    <h4 class="mono text-zinc-500 mb-10 uppercase tracking-[0.3em]">Educação Superior</h4>
-                    <div class="edu-item">
-                        <p class="text-[10px] mono opacity-40 mb-3 tracking-widest uppercase">2022 — 2025</p>
-                        <p class="text-2xl font-bold tracking-tight mb-2 uppercase">Design Gráfico</p>
-                        <p class="text-zinc-500 font-light italic serif text-xl opacity-80">Tecnólogo — Anhanguera</p>
+            <div class="pt-2">
+                <div class="mb-14">
+                    <h4 class="mono text-zinc-400 mb-7 uppercase tracking-[0.3em]">Focus Areas</h4>
+                    <div>
+                        <span class="tag">UX / UI Design</span>
+                        <span class="tag">Conversion Rate Optimization</span>
+                        <span class="tag">Landing Page Design</span>
+                        <span class="tag">E-commerce / DTC</span>
+                        <span class="tag">Design Systems</span>
+                        <span class="tag">Responsive Web</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Adobe Suite</span>
+                        <span class="tag">Ad Creatives</span>
                     </div>
                 </div>
 
                 <div>
-                    <h4 class="mono text-zinc-500 mb-10 uppercase tracking-[0.3em]">Cursos & Especializações</h4>
+                    <h4 class="mono text-zinc-400 mb-7 uppercase tracking-[0.3em]">Education</h4>
                     <div class="edu-item">
-                        <p class="text-2xl font-bold tracking-tight mb-2 uppercase">Carreira UX/UI Design</p>
-                        <p class="text-zinc-500 font-light text-sm tracking-wide">Formação em andamento em experiência e interface do usuário, abrangendo pesquisa com usuários, definição de personas, criação de jornadas e fluxos, wireframes e protótipos de baixa e alta fidelidade. Desenvolvimento de interfaces centradas no usuário com foco em usabilidade, acessibilidade e design responsivo, utilizando ferramentas como Figma, Vs Code.</p>
+                        <p class="text-[10px] mono text-zinc-400 mb-2 tracking-widest uppercase">2022 — 2025</p>
+                        <p class="text-xl font-bold tracking-tight mb-1 uppercase">Graphic Design</p>
+                        <p class="text-zinc-400 font-light italic serif text-lg">Technologist Degree — Anhanguera</p>
                     </div>
                     <div class="edu-item">
-                        <p class="text-2xl font-bold tracking-tight mb-2 uppercase">Ilustração digital</p>
-                        <p class="text-zinc-500 font-light text-sm tracking-wide">Desenvolvimento de ilustrações vetoriais utilizando Adobe Illustrator, com foco em criação de elementos gráficos, manipulação de formas, cores, tipografia e produção de layouts para mídias digitais e impressas.</p>
-                    </div>
-                    <div class="edu-item">
-                        <p class="text-2xl font-bold tracking-tight mb-2 uppercase">Photoshop</p>
-                        <p class="text-zinc-500 font-light text-sm tracking-wide">Edição, tratamento e manipulação de imagens digitais com Adobe Photoshop, incluindo uso de camadas, ajustes de cor, filtros, composição e criação de peças visuais para diferentes plataformas</p>
-                    </div>
-                                        <div class="edu-item">
-                        <p class="text-2xl font-bold tracking-tight mb-2 uppercase">Criação de Conteúdo para Mídias Sociais</p>
-                        <p class="text-zinc-500 font-light text-sm tracking-wide">Planejamento e produção de conteúdo digital, incluindo definição de personas, estratégias de comunicação, redação para redes sociais, criação de materiais visuais e análise de métricas e desempenho.</p>
+                        <p class="text-xl font-bold tracking-tight mb-1 uppercase">UX/UI Design Specialization</p>
+                        <p class="text-zinc-400 font-light text-sm tracking-wide">User research, personas, user flows, wireframing, and high-fidelity prototyping — building user-centered interfaces with a focus on usability, accessibility, and responsive design.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO PROJETOS (BENTO GRID PREMIUM) -->
-    <section id="projects" class="py-48 px-6 md:px-20 max-w-[1400px] mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-10">
-            <div>
-                <p class="mono text-zinc-600 mb-4 uppercase tracking-[0.5em]">Selected_Works.dat</p>
-                <h2 class="text-7xl md:text-9xl serif italic leading-none tracking-tighter">Portfólio</h2>
-            </div>
-            <p class="mono opacity-30 text-right uppercase leading-relaxed">Curated for 2026<br>visual excellence</p>
-        </div>
+    <!-- CONTACT -->
+    <section id="contact" class="py-32 md:py-40 px-6 md:px-20 bg-[#0a0a0a] border-t border-white/5">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-start">
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
-            <!-- PROJETO 1: ZMED -->
-            <article class="md:col-span-7 h-[650px] project-card">
-                <img src="Prancheta 1.png" class="project-img" alt="ZMED Project">
-                <div class="project-overlay">
-                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">#01_Economics Branding</p>
-                    <h3 class="text-5xl md:text-6xl serif italic text-white text-shadow-premium leading-none">Esquilo Econômico</h3>
-                </div>
-            </article>
-
-            <!-- PROJETO 2: MR. FREEZE -->
-            <article class="md:col-span-5 h-[650px] project-card">
-                <img src="Prancheta 4.png" class="project-img" alt="Mr. Freeze Project">
-                <div class="project-overlay">
-                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">#02_Product Series</p>
-                    <h3 class="text-5xl md:text-6xl serif italic text-white text-shadow-premium leading-none">Mr. Freeze</h3>
-                </div>
-            </article>
-
-            <!-- PROJETO 3: TOTALINE -->
-            <article class="md:col-span-12 h-[550px] project-card">
-                <img src="Prancheta 5.png" class="project-img" alt="Totaline Project">
-                <div class="project-overlay">
-                    <div class="max-w-2xl">
-                        <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">#03_Commercial Identity</p>
-                        <h3 class="text-6xl md:text-8xl serif italic text-white text-shadow-premium leading-tight">Totaline Foz</h3>
-                        <p class="text-zinc-400 font-light mt-6 text-base md:text-lg max-w-lg text-shadow-premium">
-                            Campanhas de climatização desenvolvidas com foco em autoridade e sofisticação de marca.
-                        </p>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- SEÇÃO CONTATO & AGRADECIMENTO -->
-    <section class="py-48 px-6 md:px-20 bg-[#0a0a0a] border-t border-white/5">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-24 items-start">
-            
             <div class="md:w-1/2">
-                <h2 class="text-7xl md:text-8xl serif italic leading-[0.8] mb-10 text-white">Obrigada<br>por ver.</h2>
-                <p class="text-zinc-500 font-light leading-relaxed text-xl mb-10">
-                    Foi um prazer compartilhar minha visão com você. Estou pronta para colaborar no seu próximo grande desafio.
+                <h2 class="text-5xl md:text-7xl serif italic leading-[0.85] mb-10 text-white">Let's build<br>something that<br>converts.</h2>
+                <p class="text-zinc-300 font-light leading-relaxed text-xl mb-10">
+                    I'm open to senior design opportunities with teams building for e-commerce and DTC.
+                    If that's you, let's talk.
                 </p>
-                <div class="inline-block border border-zinc-800 px-6 py-2 rounded-full">
-                    <p class="mono text-[9px] text-zinc-500 uppercase tracking-widest">Status: Available for 2026</p>
+                <a href="mailto:anaclara.a.j97@gmail.com?subject=Let's%20work%20together" class="btn-primary">Email me <span>→</span></a>
+                <div class="mt-8 inline-block border border-zinc-800 px-6 py-2 rounded-full">
+                    <p class="mono text-[9px] text-zinc-400 uppercase tracking-widest">Status: Open to opportunities · 2026</p>
                 </div>
             </div>
 
-            <div class="md:w-1/2 w-full pt-6">
-                <p class="mono opacity-30 mb-12 uppercase tracking-[0.5em]">Let's Connect</p>
+            <div class="md:w-1/2 w-full pt-2">
+                <p class="mono text-zinc-400 mb-10 uppercase tracking-[0.5em]">Elsewhere</p>
                 <div class="space-y-2">
                     <a href="mailto:anaclara.a.j97@gmail.com" class="contact-link uppercase text-[11px] mono font-bold">
-                        Email Address <span class="text-lg opacity-40">→</span>
+                        Email <span class="text-lg opacity-50">→</span>
                     </a>
                     <a href="https://wa.me/45984062594" class="contact-link uppercase text-[11px] mono font-bold">
-                        WhatsApp Contact <span class="text-lg opacity-40">→</span>
+                        WhatsApp <span class="text-lg opacity-50">→</span>
                     </a>
                     <a href="https://www.linkedin.com/in/anacaj/" class="contact-link uppercase text-[11px] mono font-bold">
-                        LinkedIn Profile <span class="text-lg opacity-40">→</span>
+                        LinkedIn <span class="text-lg opacity-50">→</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="py-16 text-center">
-        <p class="mono text-[8px] text-zinc-700 tracking-[1em] uppercase">Elegance • Technology • Strategy // 2026</p>
+        <p class="mono text-[8px] text-zinc-600 tracking-[1em] uppercase">UX · UI · CRO // 2026</p>
     </footer>
 
 </body>

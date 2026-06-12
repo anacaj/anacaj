@@ -89,6 +89,8 @@
             cursor: pointer;
         }
         .project-card:hover { border-color: rgba(212,207,199,0.3); }
+        .static-card { cursor: default; }
+        .static-card:hover { border-color: rgba(255,255,255,0.04); }
 
         .project-img {
             width: 100%; height: 100%; object-fit: cover;
@@ -319,8 +321,8 @@
         <!-- UNIFORM GRID: all cards same size -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
 
-            <!-- Tax Services -->
-            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
+            <!-- Tax Services (visual only) -->
+            <div class="project-card static-card" style="aspect-ratio:4/3;">
                 <img src="tax-services.png" class="project-img" alt="Tax services landing page for a US firm">
                 <div class="project-overlay">
                     <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Landing Page · Web Design</p>
@@ -329,11 +331,10 @@
                         Service-based landing page for a US tax &amp; bookkeeping firm — structured to turn
                         visitors into booked consultations.
                     </p>
-                    <span class="view-case">View case →</span>
                 </div>
-            </a>
+            </div>
 
-            <!-- Skincare Routine -->
+            <!-- Skincare Routine (real link) -->
             <a href="https://anacaj.github.io/project-showcase/skincare-routine.html" target="_blank" rel="noopener" class="project-card" style="aspect-ratio:4/3;">
                 <img src="https://anacaj.github.io/project-showcase/skincare.png" class="project-img" alt="Skincare routine interactive app">
                 <div class="project-overlay">
@@ -347,8 +348,8 @@
                 </div>
             </a>
 
-            <!-- Xiaomi -->
-            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
+            <!-- Xiaomi (visual only) -->
+            <div class="project-card static-card" style="aspect-ratio:4/3;">
                 <img src="https://anacaj.github.io/project-showcase/xiaomi.png" class="project-img" alt="Xiaomi Soundbar Pro UI case study">
                 <div class="project-overlay">
                     <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Product UI · Case Study</p>
@@ -356,32 +357,29 @@
                     <p class="text-zinc-200 font-light mt-3 text-sm md:text-base max-w-md text-shadow-premium">
                         Premium product interface — minimalist data visualization and luxury tech aesthetics.
                     </p>
-                    <span class="view-case">View case →</span>
                 </div>
-            </a>
+            </div>
 
-            <!-- Esquilo Econômico -->
-            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
+            <!-- Esquilo Econômico (visual only) -->
+            <div class="project-card static-card" style="aspect-ratio:4/3;">
                 <img src="Prancheta 1.png" class="project-img" alt="Esquilo Econômico brand identity">
                 <div class="project-overlay">
                     <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Brand Identity</p>
                     <h3 class="text-2xl md:text-4xl serif italic text-white text-shadow-premium leading-none">Esquilo Econômico</h3>
-                    <span class="view-case">View case →</span>
                 </div>
-            </a>
+            </div>
 
-            <!-- Mr. Freeze -->
-            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
+            <!-- Mr. Freeze (visual only) -->
+            <div class="project-card static-card" style="aspect-ratio:4/3;">
                 <img src="Prancheta 4.png" class="project-img" alt="Mr. Freeze product series">
                 <div class="project-overlay">
                     <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Product Series</p>
                     <h3 class="text-2xl md:text-4xl serif italic text-white text-shadow-premium leading-none">Mr. Freeze</h3>
-                    <span class="view-case">View case →</span>
                 </div>
-            </a>
+            </div>
 
-            <!-- Totaline -->
-            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
+            <!-- Totaline (visual only) -->
+            <div class="project-card static-card" style="aspect-ratio:4/3;">
                 <img src="Prancheta 5.png" class="project-img" alt="Totaline Foz commercial identity">
                 <div class="project-overlay">
                     <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Commercial Identity</p>
@@ -389,9 +387,8 @@
                     <p class="text-zinc-200 font-light mt-3 text-sm md:text-base max-w-md text-shadow-premium">
                         HVAC brand campaigns built around authority and a refined commercial identity.
                     </p>
-                    <span class="view-case">View case →</span>
                 </div>
-            </a>
+            </div>
         </div>
     </section>
 

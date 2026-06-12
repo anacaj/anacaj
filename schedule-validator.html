@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Validator — Case Study · Ana Clara</title>
+    <meta name="description" content="Case study: homepage redesign for a B2B construction-schedule SaaS — structured to build trust with a technical audience and drive trial signups and demo requests.">
+
+    <meta property="og:title" content="Schedule Validator — SaaS Landing Page Case Study">
+    <meta property="og:description" content="B2B SaaS homepage redesign — trust-building structure that drives trial signups and demos.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://anacaj.github.io/anacaj/saas-redesign.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-style='italic' fill='%23d4cfc7'>A</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --accent: #d4cfc7; --bg: #0f0f0f; --text: #f5f5f5; }
+        body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; scroll-behavior:smooth; }
+        .serif { font-family:'Instrument Serif',serif; }
+        .mono { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; }
+        a:focus-visible, button:focus-visible { outline:2px solid var(--accent); outline-offset:4px; border-radius:4px; }
+
+        .nav { position:fixed; top:0; left:0; right:0; z-index:50; display:flex; justify-content:space-between; align-items:center; padding:18px 24px; backdrop-filter:blur(12px); background:rgba(15,15,15,0.65); border-bottom:1px solid rgba(255,255,255,0.06); }
+        @media (min-width:768px){ .nav{ padding:18px 48px; } }
+        .nav-cta { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; border:1px solid var(--accent); color:var(--accent); padding:9px 18px; border-radius:999px; transition:all .3s ease; }
+        .nav-cta:hover { background:var(--accent); color:#0f0f0f; }
+
+        .eyebrow { color:#a8a29e; }
+        .meta-item { border-left:1px solid rgba(212,207,199,0.25); padding-left:1.25rem; }
+        .rule { border-color:rgba(255,255,255,0.08); }
+
+        .decision { border:1px solid rgba(255,255,255,0.07); border-radius:24px; padding:2rem; background:#0a0a0a; transition:border-color .4s ease; }
+        .decision:hover { border-color:rgba(212,207,199,0.25); }
+
+        .step-num { font-family:'Instrument Serif',serif; font-style:italic; color:var(--accent); }
+
+        .btn-primary { display:inline-flex; align-items:center; gap:10px; background:var(--accent); color:#0f0f0f; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; padding:16px 30px; border-radius:999px; transition:all .3s ease; }
+        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(212,207,199,0.18); }
+
+        figure img { width:100%; border-radius:24px; border:1px solid rgba(255,255,255,0.06); }
+        @media (prefers-reduced-motion: reduce){ * { transition:none !important; scroll-behavior:auto !important; } }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="mono uppercase tracking-widest" style="color:var(--accent)">← Ana Clara</a>
+        <a href="index.html#contact" class="nav-cta">Get in touch</a>
+    </nav>
+
+    <!-- HERO -->
+    <header class="px-6 md:px-20 max-w-6xl mx-auto pt-36 md:pt-44 pb-20">
+        <p class="mono mb-6 uppercase tracking-[0.4em] eyebrow">Case Study · B2B SaaS</p>
+        <h1 class="text-4xl md:text-7xl serif italic leading-[0.95] mb-8">Schedule Validator —<br>Homepage Redesign</h1>
+        <p class="text-zinc-300 text-lg md:text-2xl font-light leading-relaxed max-w-3xl mb-14">
+            A landing page that makes a complex construction-analytics product feel fast and approachable —
+            structured to build trust with a technical audience and move them toward a trial or demo.
+        </p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t rule pt-10">
+            <div class="meta-item">
+                <span class="mono eyebrow block mb-2 uppercase tracking-widest">Role</span>
+                <p class="text-sm font-light text-zinc-200">UX/UI &amp; CRO Design</p>
+            </div>
+            <div class="meta-item">
+                <span class="mono eyebrow block mb-2 uppercase tracking-widest">Type</span>
+                <p class="text-sm font-light text-zinc-200">B2B SaaS Landing Page</p>
+            </div>
+            <div class="meta-item">
+                <span class="mono eyebrow block mb-2 uppercase tracking-widest">Tools</span>
+                <p class="text-sm font-light text-zinc-200">Figma · Design System</p>
+            </div>
+            <div class="meta-item">
+                <span class="mono eyebrow block mb-2 uppercase tracking-widest">Deliverables</span>
+                <p class="text-sm font-light text-zinc-200">UI · Handoff · Motion specs</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- FULL DESIGN IMAGE -->
+    <section class="px-6 md:px-20 max-w-6xl mx-auto mb-24">
+        <figure>
+            <img src="saas-redesign.png" alt="Schedule Validator homepage redesign — full layout">
+            <figcaption class="mono eyebrow mt-4 uppercase tracking-widest text-center">Final homepage design</figcaption>
+        </figure>
+    </section>
+
+    <!-- CONTEXT / PROBLEM -->
+    <section class="px-6 md:px-20 max-w-4xl mx-auto mb-24">
+        <h2 class="text-xs mono text-zinc-400 uppercase tracking-[0.5em] mb-8">01 — The Brief</h2>
+        <p class="text-zinc-200 text-xl md:text-2xl font-light leading-relaxed mb-8">
+            Schedule Validator lets contractors and project owners upload P6, MS Project, or Asta schedules
+            and get an instant DCMA+ validation score, critical-path insights, and risk detection.
+        </p>
+        <p class="text-zinc-400 text-lg font-light leading-relaxed mb-6">
+            The challenge: the product is genuinely complex, and the audience is skeptical and technical —
+            project-controls engineers, owners, and contractors who don't respond to fluff. The homepage had
+            to make a sophisticated analytics tool feel fast and approachable, instill confidence, and earn
+            every scroll toward a single goal: a trial signup or demo request.
+        </p>
+        <p class="text-zinc-400 text-lg font-light leading-relaxed">
+            Benchmark for tone and polish: a modern, minimal B2B SaaS standard — restrained, data-forward,
+            zero clutter.
+        </p>
+    </section>
+
+    <!-- KEY DECISIONS -->
+    <section class="px-6 md:px-20 max-w-5xl mx-auto mb-24">
+        <h2 class="text-xs mono text-zinc-400 uppercase tracking-[0.5em] mb-12">02 — Key Design Decisions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="decision">
+                <h3 class="text-2xl serif italic mb-3">Trust before persuasion</h3>
+                <p class="text-zinc-400 font-light leading-relaxed">
+                    A technical audience converts on credibility, not slogans. I placed a trust bar directly
+                    under the hero — supported tools (Primavera P6, MS Project, Asta) and a contractor/owner
+                    trust signal — so proof arrives before the pitch.
+                </p>
+            </div>
+
+            <div class="decision">
+                <h3 class="text-2xl serif italic mb-3">A confidence-driven palette</h3>
+                <p class="text-zinc-400 font-light leading-relaxed">
+                    Deep navy/blue as the primary — the color of reliability and enterprise software — paired
+                    with a single high-contrast accent reserved exclusively for CTAs, so the eye always knows
+                    where the next action is.
+                </p>
+            </div>
+
+            <div class="decision">
+                <h3 class="text-2xl serif italic mb-3">Data viz as the hero, not stock photos</h3>
+                <p class="text-zinc-400 font-light leading-relaxed">
+                    No hard-hat stock photography. The hero leans on the product's own world — a Gantt /
+                    dashboard aesthetic — so the first impression is the value (the analytics), not decoration.
+                </p>
+            </div>
+
+            <div class="decision">
+                <h3 class="text-2xl serif italic mb-3">Every section earns its place</h3>
+                <p class="text-zinc-400 font-light leading-relaxed">
+                    Benefits, How-It-Works, testimonials, resources, and FAQ each map to a specific conversion
+                    job — reducing friction, answering objections, building authority — and lead to the final
+                    "Validate your schedules" anchor.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS / STRUCTURE -->
+    <section class="px-6 md:px-20 max-w-5xl mx-auto mb-24">
+        <h2 class="text-xs mono text-zinc-400 uppercase tracking-[0.5em] mb-12">03 — The Conversion Flow</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <p class="step-num text-5xl mb-4">01</p>
+                <h4 class="font-bold uppercase tracking-wide text-sm mb-2">Hero + dual CTA</h4>
+                <p class="text-zinc-400 font-light text-sm leading-relaxed">Clear value proposition with "Start Free Trial" and "Request Demo" side by side — capturing both ready and cautious buyers.</p>
+            </div>
+            <div>
+                <p class="step-num text-5xl mb-4">02</p>
+                <h4 class="font-bold uppercase tracking-wide text-sm mb-2">Proof + benefits</h4>
+                <p class="text-zinc-400 font-light text-sm leading-relaxed">Trust bar and a benefits grid (Validation Score, Risk ID, Trends, Easy Upload) with UI thumbnails showing the real flow.</p>
+            </div>
+            <div>
+                <p class="step-num text-5xl mb-4">03</p>
+                <h4 class="font-bold uppercase tracking-wide text-sm mb-2">How it works</h4>
+                <p class="text-zinc-400 font-light text-sm leading-relaxed">A scannable Upload → Analyze → Insights → Export timeline that makes the product feel effortless.</p>
+            </div>
+            <div>
+                <p class="step-num text-5xl mb-4">04</p>
+                <h4 class="font-bold uppercase tracking-wide text-sm mb-2">Objection handling + close</h4>
+                <p class="text-zinc-400 font-light text-sm leading-relaxed">Testimonials and an FAQ that disarm trust barriers, leading into a full-width final CTA as the conversion anchor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DELIVERABLES -->
+    <section class="px-6 md:px-20 max-w-4xl mx-auto mb-28">
+        <h2 class="text-xs mono text-zinc-400 uppercase tracking-[0.5em] mb-8">04 — Delivered</h2>
+        <p class="text-zinc-300 text-lg font-light leading-relaxed mb-6">
+            The project shipped as a complete, dev-ready package — not just a visual:
+        </p>
+        <ul class="space-y-4 text-zinc-300 font-light text-lg">
+            <li class="flex gap-4"><span class="text-[#d4cfc7]">→</span> Full homepage UI design, section by section, in Figma</li>
+            <li class="flex gap-4"><span class="text-[#d4cfc7]">→</span> A documented color and typography system</li>
+            <li class="flex gap-4"><span class="text-[#d4cfc7]">→</span> Organized, named assets ready for handoff</li>
+            <li class="flex gap-4"><span class="text-[#d4cfc7]">→</span> Motion specifications for interactive elements</li>
+            <li class="flex gap-4"><span class="text-[#d4cfc7]">→</span> Complete design handoff documentation for developers</li>
+        </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-6 md:px-20 py-28 bg-[#0a0a0a] border-t rule text-center">
+        <h2 class="text-4xl md:text-6xl serif italic mb-8">Want to see more?</h2>
+        <p class="text-zinc-400 font-light text-lg mb-10 max-w-xl mx-auto">Explore the rest of my work, or get in touch about a senior design role.</p>
+        <div class="flex flex-wrap gap-5 justify-center">
+            <a href="index.html#projects" class="btn-primary">View all work →</a>
+            <a href="index.html#contact" class="mono text-[11px] uppercase tracking-[0.4em] text-zinc-300 hover:text-white transition self-center">Get in touch</a>
+        </div>
+    </section>
+
+    <footer class="py-16 text-center">
+        <p class="mono text-[8px] text-zinc-600 tracking-[1em] uppercase">UX · UI · CRO // 2026</p>
+    </footer>
+
+</body>
+</html>

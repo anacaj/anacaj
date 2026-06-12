@@ -92,8 +92,8 @@
 
         .project-img {
             width: 100%; height: 100%; object-fit: cover;
-            opacity: 0.55;
-            filter: grayscale(15%) brightness(85%);
+            opacity: 0.65;
+            filter: grayscale(10%) brightness(90%);
             transition: all 0.9s ease;
         }
         .project-card:hover .project-img { opacity: 0.8; filter: grayscale(0%) brightness(100%); transform: scale(1.04); }
@@ -196,33 +196,33 @@
             <p class="text-zinc-400 font-light text-left md:text-right max-w-xs">Conversion-focused design for digital products and brands.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
-
-            <!-- 01 — SaaS Landing Page Redesign -->
-            <a href="schedule-validator.html" class="md:col-span-12 h-[520px] md:h-[600px] project-card">
-                <img src="saas-redesign.png" class="project-img" alt="SaaS landing page redesign — schedule validation platform">
-                <div class="project-overlay">
-                    <div class="max-w-3xl">
-                        <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Landing Page · UX/UI · Design System</p>
-                        <h3 class="text-3xl md:text-6xl serif italic text-white text-shadow-premium leading-tight">SaaS Landing Page Redesign</h3>
-                        <p class="text-zinc-200 font-light mt-5 text-base md:text-lg max-w-xl text-shadow-premium">
-                            Full redesign for a B2B schedule-validation platform — restructuring the page flow
-                            from hero to final CTA to build trust and drive conversion. Delivered as a complete,
-                            dev-ready package: visual design, a documented color and type system, motion specs,
-                            and full handoff documentation.
-                        </p>
-                        <span class="view-case">View case →</span>
-                    </div>
+        <!-- FEATURED: full-width hero case -->
+        <a href="schedule-validator.html" class="project-card block w-full mb-8 md:mb-10" style="aspect-ratio:16/9;">
+            <img src="saas-redesign.png" class="project-img" alt="SaaS landing page redesign — schedule validation platform">
+            <div class="project-overlay">
+                <div class="max-w-3xl">
+                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Landing Page · UX/UI · Design System</p>
+                    <h3 class="text-3xl md:text-6xl serif italic text-white text-shadow-premium leading-tight">SaaS Landing Page Redesign</h3>
+                    <p class="text-zinc-200 font-light mt-5 text-base md:text-lg max-w-xl text-shadow-premium">
+                        Full redesign for a B2B schedule-validation platform — restructured from hero to final
+                        CTA to build trust and drive conversion. Delivered as a complete, dev-ready package:
+                        UI, a documented design system, motion specs, and full handoff documentation.
+                    </p>
+                    <span class="view-case">View case →</span>
                 </div>
-            </a>
+            </div>
+        </a>
 
-            <!-- 02 — Tax Services -->
-            <a href="#contact" class="md:col-span-7 h-[480px] md:h-[600px] project-card">
+        <!-- UNIFORM GRID: all cards same size -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+
+            <!-- Tax Services -->
+            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
                 <img src="tax-services.png" class="project-img" alt="Tax services landing page for a US firm">
                 <div class="project-overlay">
-                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Landing Page · Web Design</p>
-                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Tax Services Landing Page</h3>
-                    <p class="text-zinc-200 font-light mt-4 text-base max-w-md text-shadow-premium">
+                    <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Landing Page · Web Design</p>
+                    <h3 class="text-2xl md:text-4xl serif italic text-white text-shadow-premium leading-none">Tax Services Landing Page</h3>
+                    <p class="text-zinc-200 font-light mt-3 text-sm md:text-base max-w-md text-shadow-premium">
                         Service-based landing page for a US tax &amp; bookkeeping firm — structured to turn
                         visitors into booked consultations.
                     </p>
@@ -230,65 +230,63 @@
                 </div>
             </a>
 
-            <!-- 03 — Skincare Routine (interactive app, DTC) -->
-            <a href="https://anacaj.github.io/project-showcase/skincare-routine.html" target="_blank" rel="noopener" class="md:col-span-7 h-[480px] md:h-[600px] project-card">
+            <!-- Skincare Routine -->
+            <a href="https://anacaj.github.io/project-showcase/skincare-routine.html" target="_blank" rel="noopener" class="project-card" style="aspect-ratio:4/3;">
                 <img src="https://anacaj.github.io/project-showcase/skincare.png" class="project-img" alt="Skincare routine interactive app">
                 <div class="project-overlay">
-                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Interactive App · UX/UI · DTC</p>
-                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Skincare Routine</h3>
-                    <p class="text-zinc-200 font-light mt-4 text-base max-w-md text-shadow-premium">
-                        A working, interactive skincare-routine experience built front-to-back — guided product
-                        flow designed for clarity and conversion in a DTC context.
+                    <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Interactive App · UX/UI · DTC</p>
+                    <h3 class="text-2xl md:text-4xl serif italic text-white text-shadow-premium leading-none">Skincare Routine</h3>
+                    <p class="text-zinc-200 font-light mt-3 text-sm md:text-base max-w-md text-shadow-premium">
+                        A working, interactive skincare-routine experience — guided product flow designed
+                        for clarity and conversion in a DTC context.
                     </p>
                     <span class="view-case">Launch app →</span>
                 </div>
             </a>
 
-            <!-- 04 — Xiaomi Soundbar Pro (product UI) -->
-            <a href="#contact" class="md:col-span-5 h-[480px] md:h-[600px] project-card">
+            <!-- Xiaomi -->
+            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
                 <img src="https://anacaj.github.io/project-showcase/xiaomi.png" class="project-img" alt="Xiaomi Soundbar Pro UI case study">
                 <div class="project-overlay">
-                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Product UI · Case Study</p>
-                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Xiaomi Soundbar Pro</h3>
-                    <p class="text-zinc-200 font-light mt-4 text-base max-w-md text-shadow-premium">
+                    <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Product UI · Case Study</p>
+                    <h3 class="text-2xl md:text-4xl serif italic text-white text-shadow-premium leading-none">Xiaomi Soundbar Pro</h3>
+                    <p class="text-zinc-200 font-light mt-3 text-sm md:text-base max-w-md text-shadow-premium">
                         Premium product interface — minimalist data visualization and luxury tech aesthetics.
                     </p>
                     <span class="view-case">View case →</span>
                 </div>
             </a>
 
-            <!-- 05 — Esquilo Econômico -->
-            <a href="#contact" class="md:col-span-5 h-[480px] md:h-[600px] project-card">
+            <!-- Esquilo Econômico -->
+            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
                 <img src="Prancheta 1.png" class="project-img" alt="Esquilo Econômico brand identity">
                 <div class="project-overlay">
-                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Brand Identity</p>
-                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Esquilo Econômico</h3>
+                    <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Brand Identity</p>
+                    <h3 class="text-2xl md:text-4xl serif italic text-white text-shadow-premium leading-none">Esquilo Econômico</h3>
                     <span class="view-case">View case →</span>
                 </div>
             </a>
 
-            <!-- 06 — Mr. Freeze -->
-            <a href="#contact" class="md:col-span-5 h-[440px] md:h-[550px] project-card">
+            <!-- Mr. Freeze -->
+            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
                 <img src="Prancheta 4.png" class="project-img" alt="Mr. Freeze product series">
                 <div class="project-overlay">
-                    <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Product Series</p>
-                    <h3 class="text-3xl md:text-5xl serif italic text-white text-shadow-premium leading-none">Mr. Freeze</h3>
+                    <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Product Series</p>
+                    <h3 class="text-2xl md:text-4xl serif italic text-white text-shadow-premium leading-none">Mr. Freeze</h3>
                     <span class="view-case">View case →</span>
                 </div>
             </a>
 
-            <!-- 07 — Totaline -->
-            <a href="#contact" class="md:col-span-7 h-[440px] md:h-[550px] project-card">
+            <!-- Totaline -->
+            <a href="#contact" class="project-card" style="aspect-ratio:4/3;">
                 <img src="Prancheta 5.png" class="project-img" alt="Totaline Foz commercial identity">
                 <div class="project-overlay">
-                    <div class="max-w-xl">
-                        <p class="mono text-[10px] mb-4 text-[#d4cfc7] uppercase tracking-[0.4em]">Commercial Identity</p>
-                        <h3 class="text-3xl md:text-6xl serif italic text-white text-shadow-premium leading-tight">Totaline Foz</h3>
-                        <p class="text-zinc-200 font-light mt-4 text-base max-w-md text-shadow-premium">
-                            HVAC brand campaigns built around authority and a refined commercial identity.
-                        </p>
-                        <span class="view-case">View case →</span>
-                    </div>
+                    <p class="mono text-[10px] mb-3 text-[#d4cfc7] uppercase tracking-[0.4em]">Commercial Identity</p>
+                    <h3 class="text-2xl md:text-4xl serif italic text-white text-shadow-premium leading-none">Totaline Foz</h3>
+                    <p class="text-zinc-200 font-light mt-3 text-sm md:text-base max-w-md text-shadow-premium">
+                        HVAC brand campaigns built around authority and a refined commercial identity.
+                    </p>
+                    <span class="view-case">View case →</span>
                 </div>
             </a>
         </div>
@@ -299,6 +297,9 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
 
             <div>
+                <img src="ana.jpg" alt="Ana Clara, UX/UI &amp; CRO Designer"
+                     class="w-40 h-40 md:w-48 md:h-48 object-cover rounded-3xl mb-10 border border-white/10"
+                     style="box-shadow:0 20px 50px rgba(0,0,0,0.4);">
                 <h2 class="text-xs mono text-zinc-400 uppercase tracking-[0.5em] mb-10">Profile</h2>
                 <h3 class="text-4xl md:text-6xl serif italic leading-tight mb-10">
                     Design measured in <span class="not-italic font-light">results, not just pixels.</span>
